@@ -43,27 +43,27 @@ with ui.sidebar(open="open"):
         with ui.accordion_panel("Seaborn Bins", style="background-color: #FFDAB9;"):
             ui.input_slider("seaborn_bin_count", "Seaborn bin count", 1, 25, 15)    
 
-    ui.a("Github", href="https://github.com/ryankrabbe/cintel-06-custom", target="_blank", style="color: Red;")
+    ui.a("Github", href="https://github.com/ryankrabbe/cintel-06-custom", target="_blank", style="color: green;")
 
 # Add Main Content
 with ui.accordion():
     with ui.accordion_panel("Penguin Information", style="padding: 10px;"):
         with ui.layout_columns():
-            with ui.value_box(showcase=icon_svg("snowflake"), max_height="150px", theme="bg-gradient-blue-cyan"):
+            with ui.value_box(showcase=icon_svg("snowflake"), max_height="200px", style="background-color: #FFDAB9"):
                 "Penguin Count"
                 @render.text
                 def display_penguin_count():
                     df = filtered_data()
                     return f"{len(df)} penguins"
 
-            with ui.value_box(showcase=icon_svg("snowman"), max_height="150px", theme="bg-gradient-blue-cyan"):
+            with ui.value_box(showcase=icon_svg("snowman"), max_height="200px", style="background-color: #FFDAB9"):
                 "Average Bill Length"
                 @render.text
                 def average_bill_length():
                     df = filtered_data()
                     return f"{df['bill_length_mm'].mean():.2f} mm" if not df.empty else "N/A"
 
-            with ui.value_box(showcase=icon_svg("icicles"), max_height="150px", theme="bg-gradient-blue-purple"):
+            with ui.value_box(showcase=icon_svg("icicles"), max_height="200px", style="background-color: #FFDAB9"):
                 "Average Bill Depth"
                 @render.text
                 def average_bill_depth():
@@ -72,10 +72,10 @@ with ui.accordion():
 
     with ui.accordion_panel("Penguin Environment", style="padding: 10px;"):
         with ui.card(full_screen=True):
-            ui.card_header("Penguin Habitat")
+            ui.card_header("Penguin Environment")
             @render_widget
             def small_map(width="100%", height="300px"):
-                return Map(center=(62.1014, 57.9296), zoom=6)
+                return Map(center=(-82.862755, 135.000000), zoom=2)
 
     with ui.accordion_panel("Penguin Charts and Plots", style="padding: 10px;"):
         with ui.layout_columns():
